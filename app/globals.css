@@ -8,8 +8,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Use the variables provided by app/layout.tsx (Playfair Display + Great Vibes) */
+  /* --font-sans should be a sensible sans-serif fallback for body text */
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-heading: var(--font-playfair);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +24,105 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Utility class for headings to use Playfair Display */
+.font-playfair {
+  font-family: var(--font-heading), serif;
+}
+
+/* Optional utility if you need to force Great Vibes explicitly */
+.font-great-vibes {
+  font-family: var(--font-great-vibes), var(--font-heading), serif;
+}
+
+/* Fallback / explicit animations to ensure availability during dev */
+@layer utilities {
+  @keyframes kenburns {
+    0% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.06) translateY(-4%);
+      opacity: 1;
+    }
+  }
+
+  .animate-kenburns {
+    animation: kenburns 8s ease-in-out forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(12%) scale(1.02);
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1.06);
+      opacity: 1;
+    }
+  }
+
+  .animate-slideUp {
+    animation: slideUp 6s ease-in-out both;
+    will-change: transform, opacity;
+  }
+
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-12%) scale(1.02);
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1.06);
+      opacity: 1;
+    }
+  }
+
+  .animate-slideDown {
+    animation: slideDown 6s ease-in-out both;
+    will-change: transform, opacity;
+  }
+}
+
+.animate-bubble {
+  animation: bubble 6s ease-in-out infinite;
+  filter: blur(0.5px);
+}
+
+/* ─── Sun ray (vạt nắng) ─────────────────────────────── */
+@keyframes sunray {
+  0% {
+    transform: skewX(-18deg) translateX(0%);
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: skewX(-18deg) translateX(400%);
+    opacity: 0;
+  }
+}
+
+.animate-sunray {
+  animation: sunray 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-sunray-late {
+  animation: sunray 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.3s forwards;
+  will-change: transform, opacity;
 }
