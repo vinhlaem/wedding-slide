@@ -1,5 +1,5 @@
 import React from "react";
-import type { Slide } from "../lib/slides";
+import type { Slide } from "../lib/api";
 import BannerSlide from "./BannerSlide";
 import TwoImageSlide from "./TwoImageSlide";
 import ThreeImageSlide from "./ThreeImageSlide";
@@ -12,13 +12,15 @@ export default function SlideRenderer({
   slide: Slide;
   active: boolean;
 }) {
+  const caption = slide.caption || undefined;
+
   switch (slide.type) {
     case "banner":
       return (
         <BannerSlide
           image={slide.images[0]}
           active={active}
-          caption={slide.caption}
+          caption={caption}
         />
       );
     case "two":
@@ -26,7 +28,7 @@ export default function SlideRenderer({
         <TwoImageSlide
           images={slide.images}
           active={active}
-          caption={slide.caption}
+          caption={caption}
         />
       );
     case "three":
@@ -34,7 +36,7 @@ export default function SlideRenderer({
         <ThreeImageSlide
           images={slide.images}
           active={active}
-          caption={slide.caption}
+          caption={caption}
         />
       );
     case "four":

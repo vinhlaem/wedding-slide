@@ -20,11 +20,12 @@ export default function FourImageSlide({
         display: "grid",
         gridTemplateColumns: "2fr 2fr 2fr",
         gridTemplateRows: "1fr 1fr",
+        gap: "2px",
       }}
     >
       {/* Left tall image — spans both rows */}
       <div
-        className="relative overflow-hidden"
+        className="relative overflow-hidden photo-depth"
         style={{ gridColumn: 1, gridRow: "1 / 3" }}
       >
         <img
@@ -41,7 +42,7 @@ export default function FourImageSlide({
 
       {/* Top-center image */}
       <div
-        className="relative overflow-hidden"
+        className="relative overflow-hidden photo-depth"
         style={{ gridColumn: 2, gridRow: 1 }}
       >
         <img
@@ -58,7 +59,7 @@ export default function FourImageSlide({
 
       {/* Bottom-center image */}
       <div
-        className="relative overflow-hidden"
+        className="relative overflow-hidden photo-depth"
         style={{ gridColumn: 2, gridRow: 2 }}
       >
         <img
@@ -75,7 +76,7 @@ export default function FourImageSlide({
 
       {/* Right tall image — spans both rows */}
       <div
-        className="relative overflow-hidden"
+        className="relative overflow-hidden photo-depth"
         style={{ gridColumn: 3, gridRow: "1 / 3" }}
       >
         <img

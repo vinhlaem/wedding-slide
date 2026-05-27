@@ -22,7 +22,7 @@ export default function TwoImageSlide({
           <img
             src={images[0]}
             alt="left"
-            className={`w-full h-full object-cover ${
+            className={`w-full h-full object-cover photo-depth ${
               active ? "animate-slideUp" : "opacity-0"
             }`}
             style={{ willChange: "transform, opacity" }}
@@ -32,7 +32,7 @@ export default function TwoImageSlide({
         </div>
 
         {/* Caption in the middle */}
-        <div className="flex flex-col items-center justify-center bg-[#faf8f4]">
+        <div className="flex flex-col items-center justify-center bg-[#faf8f4] caption-card">
           <h2
             className="font-great-vibes text-4xl text-center leading-snug"
             style={{ color: "#5c4a3a" }}
@@ -54,7 +54,7 @@ export default function TwoImageSlide({
           <img
             src={images[1]}
             alt="right"
-            className={`w-full h-full object-cover ${
+            className={`w-full h-full object-cover photo-depth ${
               active ? "animate-slideDown" : "opacity-0"
             }`}
             style={{ willChange: "transform, opacity" }}
@@ -73,7 +73,7 @@ export default function TwoImageSlide({
         <img
           src={images[0]}
           alt="left"
-          className={`w-full h-full object-cover ${active ? "animate-slideUp" : "opacity-0"}`}
+          className={`w-full h-full object-cover photo-depth ${active ? "animate-slideUp" : "opacity-0"}`}
           style={{ willChange: "transform, opacity" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 to-transparent" />
@@ -84,7 +84,7 @@ export default function TwoImageSlide({
         <img
           src={images[1]}
           alt="right"
-          className={`w-full h-full object-cover ${active ? "animate-slideDown" : "opacity-0"}`}
+          className={`w-full h-full object-cover photo-depth ${active ? "animate-slideDown" : "opacity-0"}`}
           style={{ willChange: "transform, opacity" }}
         />
         <div className="absolute inset-0 bg-gradient-to-l from-black/25 to-transparent" />

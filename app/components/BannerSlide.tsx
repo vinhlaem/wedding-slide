@@ -21,13 +21,14 @@ export default function BannerSlide({
         style={{ willChange: "transform, opacity" }}
       />
 
+      {/* Vignette overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/25 pointer-events-none" />
 
       <SunRayOverlay active={active} />
 
       {caption && (
-        <div className="absolute left-6 bottom-16 text-[#5c4a3a]">
-          <h2 className="text-3xl md:text-5xl font-great-vibes">{caption}</h2>
+        <div className="absolute left-1/2 bottom-12 -translate-x-1/2 text-center">
+          <h2 className="caption-title">{caption}</h2>
         </div>
       )}
     </div>

@@ -8,7 +8,7 @@ export default function ThreeImageSlide({
 }: {
   images: string[];
   active: boolean;
-  caption?: string | null;
+  caption?: string;
 }) {
   // Layout: left column = two stacked images (images[0], images[1])
   // right column = large image (images[2])
@@ -16,7 +16,7 @@ export default function ThreeImageSlide({
   return (
     <div className="w-full h-screen grid grid-cols-[1fr_0.8fr_2fr] gap-2">
       <div className="col-span-1 grid grid-rows-[1fr_auto_1fr] gap-2 h-full">
-        <div className="relative overflow-hidden rounded-lg min-h-0">
+        <div className="relative overflow-hidden rounded-lg min-h-0 photo-depth">
           <img
             src={images[0]}
             alt="left-top"
@@ -28,7 +28,7 @@ export default function ThreeImageSlide({
         <div className="flex items-center justify-center px-2">
           {caption ? (
             <div className="relative z-10">
-              <p className="text-4xl text-[#5c4a3a] leading-relaxed font-great-vibes">
+              <p className="text-4xl text-[#5c4a3a] leading-relaxed font-great-vibes text-center">
                 {caption}
               </p>
             </div>
@@ -36,7 +36,7 @@ export default function ThreeImageSlide({
             <div className="w-full h-full" />
           )}
         </div>
-        <div className="relative overflow-hidden rounded-lg min-h-0">
+        <div className="relative overflow-hidden rounded-lg min-h-0 photo-depth">
           <img
             src={images[1]}
             alt="left-bottom"
@@ -46,7 +46,7 @@ export default function ThreeImageSlide({
         </div>
       </div>
 
-      <div className="col-span-2 relative overflow-hidden rounded-lg h-full">
+      <div className="col-span-2 relative overflow-hidden rounded-lg h-full photo-depth">
         <img
           src={images[2]}
           alt="right"
